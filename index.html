@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SK STORES - Stationery Shop</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">SK STORES</div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#categories">Categories</a>
+        <a href="#shop">Shop</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <button class="cart-button" onclick="toggleCart()">
+        🛒 Cart (<span id="cart-count">0</span>)
+    </button>
+</header>
+
+<main>
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <p class="tagline">WELCOME TO SK STORES</p>
+            <h1>Everything You Need for School & Creativity!</h1>
+            <p>Find pens, notebooks, art supplies and much more at affordable prices.</p>
+            <a href="#shop" class="primary-button">Shop Now</a>
+        </div>
+    </section>
+
+    <section class="section" id="categories">
+        <h2>Shop by Category</h2>
+
+        <div class="category-grid">
+            <button onclick="filterCategory('All')">All Products</button>
+            <button onclick="filterCategory('Pens')">Pens & Pencils</button>
+            <button onclick="filterCategory('Notebooks')">Notebooks</button>
+            <button onclick="filterCategory('Art Supplies')">Art Supplies</button>
+            <button onclick="filterCategory('Accessories')">Accessories</button>
+        </div>
+    </section>
+
+    <section class="section" id="shop">
+        <h2>Our Products</h2>
+
+        <div class="shop-controls">
+            <input
+                type="text"
+                id="search-input"
+                placeholder="Search for products..."
+                oninput="searchProducts()"
+            >
+
+            <select id="sort-products" onchange="sortProducts()">
+                <option value="default">Sort By</option>
+                <option value="low">Price: Low to High</option>
+                <option value="high">Price: High to Low</option>
+                <option value="name">Name: A to Z</option>
+            </select>
+        </div>
+
+        <div id="product-list" class="product-grid"></div>
+    </section>
+
+    <section class="offer">
+        <h2>Special Offers at SK STORES!</h2>
+        <p>Discover stationery essentials at affordable prices.</p>
+        <a href="#shop" class="primary-button">Explore Products</a>
+    </section>
+
+    <section class="section about" id="about">
+        <h2>About SK STORES</h2>
+        <p>
+            SK STORES is your one-stop destination for school stationery,
+            office supplies, notebooks, art materials and creative essentials.
+            We aim to provide useful products at affordable prices.
+        </p>
+    </section>
+
+    <section class="section reviews">
+        <h2>Customer Reviews</h2>
+
+        <div class="review-grid">
+            <div class="review-card">
+                <p>"Great stationery collection and affordable prices!"</p>
+                <h4>- Ananya</h4>
+            </div>
+
+            <div class="review-card">
+                <p>"I love the notebooks and art supplies here."</p>
+                <h4>- Priya</h4>
+            </div>
+
+            <div class="review-card">
+                <p>"A useful shop for all my school needs."</p>
+                <h4>- Kavin</h4>
+            </div>
+        </div>
+    </section>
+
+    <section class="section contact" id="contact">
+        <h2>Contact Us</h2>
+
+        <form id="contact-form">
+            <input type="text" id="contact-name" placeholder="Your Name" required>
+            <input type="email" id="contact-email" placeholder="Your Email" required>
+            <textarea id="contact-message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+</main>
+
+<!-- Shopping Cart -->
+<div id="cart-panel" class="cart-panel">
+    <div class="cart-header">
+        <h2>Your Shopping Cart</h2>
+        <button onclick="toggleCart()">✕</button>
+    </div>
+
+    <div id="cart-items"></div>
+
+    <div class="cart-footer">
+        <h3>Total: ₹<span id="cart-total">0</span></h3>
+        <button onclick="checkout()" class="checkout-button">
+            Checkout
+        </button>
+    </div>
+</div>
+
+<footer>
+    <h2>SK STORES</h2>
+    <p>Your Favourite Stationery Destination!</p>
+    <p>© 2026 SK STORES. All Rights Reserved.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
